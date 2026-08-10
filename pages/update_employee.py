@@ -1,6 +1,6 @@
 import streamlit as st
 
-from api.employee_api import get_employees
+from api.employee_api import update_employee, get_employees
 
 
 st.title("Update employee")

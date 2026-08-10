@@ -22,3 +22,16 @@ def add_employee(employee_data):
         return response.json()
     except requests.exceptions.RequestException as exc:
         raise RuntimeError("Unable to add the employee.") from exc
+
+
+def update_employee(employee_id, employee_data):
+    try:
+        response = requests.put(
+            f"{BASE_URL}/users/{employee_id}",
+            json=employee_data,
+            timeout=10,
+        )
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as exc:
+        raise RuntimeError("Unable to update the employee.") from exc
